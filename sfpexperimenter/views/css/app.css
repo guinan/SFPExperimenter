@@ -1,0 +1,320 @@
+/* ****************** General style ****************** */
+html {
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #999999, #EFF8FE 20%, #DDDDDD 40%, #EFF8FE 60%, #AAAAAA 80%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+    font-family: sans-serif;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  
+    border-radius: 8px;
+}
+
+.head-row {
+    padding-top: 10px;
+    padding-bottom: 60px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    background: radial-gradient(ellipse 110% 100% at 90% 40%, rgba(255,255,255,1) 10%, rgba(143,152,158,0.2) 75%, rgba(0,0,0,0) 95%),
+                linear-gradient(to bottom, #BBBBBB, #FFFFFF);
+}
+
+
+/* ****************** Font stuff ****************** */
+h2 {
+    font-weight: bold;
+}
+
+h2, h3, h4, label {
+    color: #053D64;
+}
+
+input {
+    background-color: #D1E0F5;
+}
+
+label {
+    padding: 7px 0px 3px 0px;
+    margin: 0px 0px 0px 20px;
+}
+
+panel {
+    border-radius: 5px;
+}
+
+canvas {
+    border: 1px solid #EEEEEE; 
+}
+
+
+/* ****************** Table stuff ****************** */
+table > tbody {
+    background-color: #FFFFFF;
+}
+
+table > thead > tr > th {
+    background: radial-gradient(ellipse 200% 150% at 0% 0%, #96C2E6 50%, #FFFFFF);
+    word-wrap: break-word;
+}
+
+table > tbody > tr > td {
+    word-wrap: break-word;
+}
+
+/* Make border + stripes effect */
+table > tbody > tr:nth-child(even) > td {
+    background-color: #F4FBFF;
+}
+
+table > tbody > tr > td:first-child {
+    border-style: solid;
+    border-width: 1px 0px 1px 0px;
+    border-color: #DDDDDD #DDDDDD #DDDDDD #DDDDDD;
+}
+
+table > tbody > tr > td {
+    border-style: solid;
+    border-width: 1px 0px 1px 1px;
+    border-color: #DDDDDD #DDDDDD #DDDDDD #DDDDDD;
+}
+
+/* Borders for selected table rows
+    Due to my lack of CSS knowledge I had to make multiple rules to override the rules of standard borders */
+table > tbody > tr.selected > td {
+    background: linear-gradient(to bottom, rgba(207, 232, 250, 0.6), rgba(254, 254, 254, 0.6) 30%, rgba(207, 232, 250, 0.6) 90%);
+    border-style: solid;
+    border-color: #96C2E6 #96C2E6 #96C2E6 #96C2E6;
+    border-width: 1px 1px 1px 1px;
+}
+
+table > tbody > tr.selected > td:first-child  {
+    background: linear-gradient(to bottom, rgba(207, 232, 250, 0.6), rgba(254, 254, 254, 0.6) 30%, rgba(207, 232, 250, 0.6) 90%);
+    border-style: solid;
+    border-color: #96C2E6 #96C2E6 #96C2E6 #96C2E6;
+    border-width: 1px 1px 1px 2px;
+}
+
+table > tbody > tr.selected > td:last-child  {
+    background: #FFFFFF;
+    border-style: solid;
+    border-width: 1px 0px 0px 1px;
+    border-color: #DDDDDD #DDDDDD #DDDDDD #DDDDDD;
+}
+
+table > tbody > tr:nth-child(even).selected > td:last-child  {
+    background-color: #F4FBFF;
+    border-style: solid;
+    border-width: 1px 0px 0px 1px;
+    border-color: #DDDDDD #DDDDDD #DDDDDD #DDDDDD;
+}
+
+/* Add (or remove) the arrows for sortable/sorted table header cells */
+table > thead > tr .header {
+    background: url(../img/bg.gif) no-repeat center right, radial-gradient(ellipse 200% 150% at 0% 0%, #96C2E6 50%, #FFFFFF);
+	cursor: pointer;
+}
+
+table > thead > tr .headerAsc {
+    background: url(../img/asc.gif) no-repeat center right, radial-gradient(ellipse 200% 150% at 0% 0%, #96C2E6 50%, #FFFFFF);
+	cursor: pointer;
+}
+table > thead > tr .headerDesc {
+    background: url(../img/desc.gif) no-repeat center right, radial-gradient(ellipse 200% 150% at 0% 0%, #96C2E6 50%, #FFFFFF);
+	cursor: pointer;
+}
+
+/* Change background of table rows that are hovered */
+table.table-hover > tbody > tr:hover > td {
+    background-color: #CFE8FA;
+    cursor: pointer;
+}
+table.table-hover > tbody > tr:hover > td:last-child {
+    background-color: #CFE8FA;
+    cursor: pointer;
+}
+
+/* Div around tables with sticky headers */
+.wrapper {
+    position: relative;
+    padding: 0px;
+    margin-bottom: -20px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* South-east handle for resizable canvas' */
+.ui-resizable-se {
+    width: 15px;
+    height: 15px;
+    background-color: rgba(220, 220, 220, 0.3);
+    border: 1px solid #000000;
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+}
+
+.ui-widget-content {
+    margin-left: 15px;
+}
+
+/* Make canvas buttons transparent and absolutely positioned */
+button.on-canvas {
+    color: #000000;
+    border: 1px solid #888888;
+    border-radius: 0px;
+    position: absolute;
+    background: rgba(221, 221, 221, 0.1);
+}
+
+/* Grey background for clicked buttons (used for canvas) */
+button[clicked] {
+    background-color: rgba(10, 10, 10, 0.2);
+    color: #000000;
+    border: 1px solid #888888;
+}
+
+/* Spacers for extra space */
+.spacer-small {
+    margin-top: 8px;
+}
+.spacer-medium {
+    margin-top: 16px;
+}
+.spacer-big {
+    margin-top: 25px;
+}
+.spacer-large{
+    margin-top: 32px;
+}
+
+.wordwrap {
+    white-space: pre-wrap;
+}
+
+
+/* ****************** Special adjustments for individual elements ****************** */
+#main-container {
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+
+#dashboard {
+  padding: 80px 15px;
+}
+
+#URI-area {
+    background: linear-gradient(to bottom left, #FFFFFF, #FBFBFB);
+}
+
+#gen-collapser, #set-collapser, #doc-collapser {
+    outline: 0;
+}
+
+#sfp-accordion-1 {
+    padding: 10px;
+}
+
+#file-dialogue {
+    display: none;
+}
+
+/* Specs and preset selector (most importantly the z-index for foreground changes) */
+#param-specification {
+    background: radial-gradient(ellipse 180% 100% at 100% 0%, #F7F7F7 , #FFFFFF );
+    padding: 10px 5px 5px;
+    margin-left: 15px;
+    margin-top: 0px;
+    position: relative;
+    z-index: 1000;
+}
+
+#presets-selector {
+    border: 0px;
+    position: relative;
+    z-index: 1;
+}
+
+#presets-selector-table {
+    margin-bottom: 0px;
+}
+
+#preset-label, #spec-label {
+    position: relative; z-index: 1;
+    border-radius: 5px;
+    border: 0px solid #96C2E6;
+}
+
+/* Table height for preset selector */
+#presets-selector-wrapper {
+    height: 262px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+/* Table height for SFP selection */
+#set-base-toggle, #doc-base-toggle{
+    height: 280px;
+}
+
+/* Property table heights */
+#set-properties-wrapper, #doc-properties-wrapper {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    min-height: 190px;
+    max-height: 310px;
+    margin: -20px 0px -20px 15px;
+}
+
+#set-properties-table, #doc-properties-table {
+    margin: 0px;
+    table-layout:fixed;
+}
+
+#set-properties-table > thead tr:first-child, #doc-properties-table  tr:first-child {
+    border-top-left-radius: 3px;
+}
+
+#set-properties-table > thead tr:last-child, #doc-properties-table  tr:last-child {
+    border-top-right-radius: 3px;
+}
+
+
+#set-properties-panel, #doc-properties-panel {
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0px;
+    float: right;
+}
+
+#set-canvas-panel, #doc-canvas-panel {
+    border: 0px solid;
+    padding: 0px;
+    margin-right: 25px;
+    margin-top: 20px;
+    width: 515px;
+    height: 310px;
+}
+
+#set-canvas-zoom, #doc-canvas-zoom {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 100px;
+    background: rgba(150, 150, 150, 0);
+}
+
+/* Accordion heading color changes */
+#sfp-heading-1, #sfp-heading-2, #sfp-heading-3 {
+    background: radial-gradient(ellipse 130% 200% at 0% 0%, #F6F2E5 50%, #FFFFFF);
+}

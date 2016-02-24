@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <title>SFPExperimenter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/vis.min.css">
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/animations.css">
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js">                </script>
+        <script type="text/javascript" src="js/bootstrap.min.js">                    </script>
+        <script type="text/javascript" src="js/jquery-ui.min.js">                    </script>
+        <script type="text/javascript" src="js/jquery.tablesorter.min.js">           </script>
+        <script type="text/javascript" src="js/jquery.tablesorter.widgets.min.js">   </script>
+        <script type="text/javascript" src="js/notify.min.js">                       </script>
+        <script type="text/javascript" src="js/vis.min.js">                       </script>
+        <script type="text/javascript" src="js/app.js">                              </script>
+    </head>
+    <body>
+        <div class="container-fluid border" id="main-container">
+            <!-- Title Bar -->
+            <div class="row head-row">
+                <div class="col-xs-6 col-xs-offset-3"><h2 class="text-center">SFPExperimenter</h2></div>
+                <div class="col-xs-3"><h5 class="text-right" id="jobqueue-disp">Jobs queued: 0</h5></div>
+            </div>
+            
+            <!-- "Accordion" - folding structure containing basically everything -->
+            <div class="panel-group" id="sfp-accordion">
+            
+                <!--          "Generate SFP" part          -->
+                <div class="panel panel-default">
+                
+                    <div class="panel-heading" id="sfp-heading-1">
+                        <div class="panel-title">
+                            <a data-toggle="collapse" id="gen-collapser" data-parent="#sfp-accordion" href="#sfp-accordion-1">
+                                <div class="text-center">Generate SFPs</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-collapse collapse" id="sfp-accordion-1">
+                        <!-- URL input area -->
+                        <div class="row">
+                            <div class="text-center col-xs-12">
+                                <h4>Add Document URI(s):</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5 div-left-to-center">
+                                <textarea class="form-control" rows="3" id="uri-area" placeholder="URIs divided by line break"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="spacer-medium"></div>
+                        <div class="spacer-medium"></div>
+                        <div class="row">
+                        
+                            <!-- Form to define parameters (left side) -->
+                            
+                            <div class="col-xs-5">
+                                <div class="row div-rotate-left-center" id="spec-label">
+                                    <button class="btn btn-default center-block" id="spec-button">Specify Parameters</button>
+                                </div>
+                                <div class="row">
+                                    <div class="panel panel-default col-xs-12 div-left-to-center table-scrollable" id="param-specification">
+                                        <form class="form-horizontal" method="get" action="documentAdd">
+                                            <div class="form-group">
+                                                <label for="param1min" class="col-xs-5 control-label">Search depth</label>
+                                                <div class="col-xs-6">
+                                                    <input type="text" class="form-control" id="param1max" placeholder="max">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="param2min" class="col-xs-5 control-label">Search results</label>
+                                                <div class="col-xs-6">
+                                                    <input type="text" class="form-control" id="param2max" placeholder="max">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="param3min" class="col-xs-5 control-label">Path length</label>
+                                                <div class="col-xs-6">
+                                                    <input type="text" class="form-control" id="param3max" placeholder="max">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="param4min" class="col-xs-5 control-label">Relevant nodes</label>
+                                                <div class="col-xs-6">
+                                                    <input type="text" class="form-control" id="param4max" placeholder="max">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="param5" class="col-xs-5 control-label">Keywords</label>
+                                                <div class="col-xs-6">
+                                                    <input type="text" class="form-control" id="param5" placeholder="Separation via ;">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- List to choose from predefined parameter sets (right side) -->
+                            
+                            <div class="col-xs-6 pull-right">
+                                <div class="row div-rotate-center-right" id="presets-label">
+                                    <button class="btn btn-default center-block" id="presets-button">Choose from presets</button>
+                                </div>
+                                <div class="row">
+                                    <div class="panel panel-default div-center-to-right" id="presets-selector">
+                                        <div class="narrow-block wrapper" id="presets-selector-wrapper">
+                                            <table class="table table-hover table-selectable" id="presets-selector-table">
+                                                <thead id="presets-selector-head">
+                                                    <tr>
+                                                        <th class="col-xs-6 header">Name</th>
+                                                        <th class="col-xs-5 header" title="Max. search depth&#013;Max. search results&#013;Max. path length&#013;Num. relevant nodes&#013;Keywords">Settings</th>
+                                                        <th class="col-xs-1"></span></button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="presets-selector-table-body">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Add parameter set to presets part -->
+                        <div class="spacer-medium"></div>
+                        <div class="row div-bottom-to-center" id="save-params">
+                            <div class="col-sm-5 col-xs-5 text-right">
+                                <label for="input-set-name" class="control-label-left">Add parameters as new preset:</label>
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <div class="input-group col-sm-4 col-xs-6">
+                                <input type="text" class="form-control" id="input-set-name" placeholder="Name">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary pull-right" id="add-preset-button">Add new preset</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spacer-large"></div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <button class="btn btn-primary" id="generate-sfp-button">Generate Semantic Finger Print(s)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Compare SFPs of the same document with different parameters (2.) -->
+                
+                <div class="panel panel-default">
+                
+                    <div class="panel-heading" id="sfp-heading-2">
+                        <div class="panel-title">
+                            <a data-toggle="collapse" id="set-collapser" data-parent="#sfp-accordion" href="#sfp-accordion-2">
+                                <div class="text-center">Comparison with different parameter sets</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-collapse collapse" id="sfp-accordion-2">
+                        <div class="panel-body">
+                        
+                            <!-- Selection of base SFP -->
+                            <div class="text-center">
+                                <button class="btn btn-primary" id="select-set-base" data-toggle="collapse" data-target="#set-base-toggle">Hide SFP selection</button>
+                                <button class="btn btn-primary disabled" id="export-csv-set">Export selected SFPs</button>
+                            </div>
+                            <div class="spacer-small"></div>
+                            <div id="set-base-toggle" class="panel panel-default narrow-block wrapper collapse in">
+                                <table class="table table-hover table-selectable" id="set-selector-table">
+                                    <thead id="set-selector-head">
+                                        <tr>
+                                            <th class="col-xs-5 header">URI</th>
+                                            <th class="col-xs-3 header">Timestamp</th>
+                                            <th class="col-xs-3 header" title="Max. search depth&#013;Max. search results&#013;Max. path length&#013;Num. relevant nodes">Parameters</th>
+                                            <th class="col-xs-1 sorter-false"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="set-selector-table-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="spacer-medium"></div>
+                            <div class="row">
+                                <div class="col-md-6" id="set-btns">
+                                </div>
+                            </div>
+                            <div class="spacer-small"></div>
+                            <div class="row" style="padding: 0px 30px 0px 0px;">
+                                <div class="col-md-5 col-sm-4 col-xs-12 ui-widget-content" style="border: 0px; padding: 0px" id="set-network-container">
+                                    <div id="set-network"></div>
+                                    <div class="ui-resizable-handle ui-resizable-se" id="set-segrip"></div>
+                                </div>
+                                
+                                <!-- Different param sets property table -->
+                                <div class="panel panel-default col-md-5 col-xs-12" id="set-properties-panel">
+                                    <div class="narrow-block wrapper" id="set-properties-wrapper">
+                                        <table class="table" id="set-properties-table">
+                                            <thead id="set-preoperties-head">
+                                                <tr>
+                                                    <th class="col-xs-4 sorter-false">Name</th>
+                                                    <th class="col-xs-8 sorter-false">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-xs-4">Timestamp</td>
+                                                    <td class="col-xs-8"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-xs-4">URI</td>
+                                                    <td class="col-xs-8"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-xs-4">Keywords</td>
+                                                    <td class="col-xs-8"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-xs-4" title="Max. search depth&#013;Max. search results&#013;Max. path length&#013;Num. relevant nodes">Parameters</td>
+                                                    <td class="col-xs-8" title="Max. search depth&#013;Max. search results&#013;Max. path length&#013;Num. relevant nodes"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Compare SFPs of different documents with the same parameters (3.) -->
+                
+                <div class="panel panel-default">
+                
+                    <div class="panel-heading" id="sfp-heading-3">
+                        <div class="panel-title">
+                            <a data-toggle="collapse" id="doc-collapser" data-parent="#sfp-accordion" href="#sfp-accordion-3">
+                                <div class="text-center">Comparison of different documents</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-collapse collapse" id="sfp-accordion-3">
+                        <div class="panel-body">
+                        
+                            <!-- Selection of base SFP -->
+                            <div class="text-center">
+                                <button class="btn btn-primary" id="select-doc-base" data-toggle="collapse" data-target="#doc-base-toggle">Hide SFP selection</button>
+                                <button class="btn btn-primary disabled" id="export-csv-doc">Export selected SFPs</button>
+                            </div>
+                            <div class="spacer-small"></div>
+                            <div class="panel panel-default narrow-block wrapper collapse in" id="doc-base-toggle">
+                                <table class="table table-hover table-selectable" id="doc-selector-table">
+                                    <thead id="doc-selector-head">
+                                        <tr>
+                                            <th class="col-xs-5 header">URI</th>
+                                            <th class="col-xs-3 header">Timestamp</th>
+                                            <th class="col-xs-3 header" title="Max. search depth&#013;Max. search results&#013;Max. path length&#013;Num. relevant nodes">Parameters</th>
+                                            <th class="col-xs-1 sorter-false"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="doc-selector-table-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="spacer-medium"></div>
+                            <div class="row">
+                                <div class="col-md-6" id="doc-btns">
+                                </div>
+                            </div>
+                            <div class="spacer-small"></div>
+                            <div class="row" style="padding: 0px 30px 0px 0px;">
+                                <div class="col-md-5 col-sm-4 col-xs-12 ui-widget-content" style="border: 0px; padding: 0px" id="doc-network-container">
+                                    <div id="doc-network"></div>
+                                    <div class="ui-resizable-handle ui-resizable-se" id="doc-segrip"></div>
+                                </div>
+                                
+                                <!-- Different param sets property table -->
+                                <div class="panel panel-default col-md-5 col-xs-12" id="doc-properties-panel">
+                                    <div class="narrow-block wrapper" id="doc-properties-wrapper">
+                                        <table class="table" id="doc-properties-table">
+                                            <thead id="doc-properties-head">
+                                                <tr>
+                                                    <th class="col-xs-4 sorter-false">Name</th>
+                                                    <th class="col-xs-8 sorter-false">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-xs-4">Timestamp</td>
+                                                    <td class="col-xs-8"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-xs-4">URI</td>
+                                                    <td class="col-xs-8"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-xs-4">Keywords</td>
+                                                    <td class="col-xs-8"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-xs-4" title="Max. search depth&#013;Max. search results&#013;Max. path length&#013;Num. relevant nodes">Parameters</td>
+                                                    <td class="col-xs-8" title="Max. search depth&#013;Max. search results&#013;Max. path length&#013;Num. relevant nodes"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="spacer-small"></div>
+        </div>
+    </body>
+</html>

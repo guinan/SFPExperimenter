@@ -1,0 +1,116 @@
+.div-left-to-center {
+	animation: moveLeftToCenter .5s ease forwards;
+}
+
+.div-right-to-center {
+	animation: moveRightToCenter .5s ease forwards;
+}
+
+.div-bottom-to-center {
+	animation: moveBottomToCenter .5s ease forwards;
+}
+
+.div-top-to-center{
+	animation: moveTopToCenter .5s ease forwards;
+}
+
+.div-center-to-left {
+	animation: moveCenterToLeft .5s ease forwards;
+}
+
+.div-center-to-right {
+	animation: moveCenterToRight .5s forwards;
+}
+
+.div-center-to-bottom  {
+	animation: moveCenterToBottom .5s ease forwards;
+}
+
+.div-center-to-top  {
+	animation: moveCenterToTop .5s ease forwards;
+}
+
+.div-rotate-left-center {
+    animation: rotateLeftToCenter .5s ease forwards;
+}
+
+.div-rotate-right-center {
+    animation: rotateRightToCenter .5s ease forwards;
+}
+
+.div-rotate-center-left {
+    animation: rotateCenterToLeft .5s ease forwards;
+}
+
+.div-rotate-center-right {
+    animation: rotateCenterToRight .5s ease forwards;
+}
+
+.hide-item {
+    animation: deleteItem .5s ease forwards;
+}
+
+@keyframes moveLeftToCenter { 
+	from { transform: translateX(-30%) scale(0.001, 1); visibility: hidden; z-index: 1;}
+	to { transform: translateX(60%) scale(1, 1); visibility: visible; z-index: 1000;}
+}
+
+@keyframes moveRightToCenter { 
+	from { transform: translateX(27%) scale(0.001, 1); visibility: hidden; z-index: 1; }
+	to { transform: translateX(-50%) scale(1, 1); visibility: visible; z-index: 1000; }
+}
+
+@keyframes moveBottomToCenter {
+	from { transform: translateY(50%) scale(1, 0.001); visibility: hidden; z-index: 1; }
+	to { transform: translateY(0%) scale(1, 1); visibility: visible; z-index: 1000; }
+}
+
+@keyframes moveTopToCenter {
+	from { transform: translateY(-50%) scale(1, 0.001); visibility: hidden; z-index: 1; }
+	to { transform: translateY(0%) scale(1, 1); visibility: visible; z-index: 1000; }
+}
+
+@keyframes moveCenterToLeft { 
+	from { transform: translateX(60%) scale(1, 1); visibility: visible; z-index: 1000; visibility: visible;}
+	to { transform: translateX(-30%) scale(0.001, 1); visibility: hidden; z-index: 1; visibility: hidden;}
+}
+
+@keyframes moveCenterToRight { 
+	from { transform: translateX(-50%) scale(1, 1); visibility: visible; z-index: 1000; }
+	to { transform: translateX(27%) scale(0.001, 1); visibility: hidden; z-index: 1; }
+}
+
+@keyframes moveCenterToBottom {
+	from { transform: translateY(0%) scale(1, 1); visibility: visible; z-index: 1000; }
+	to { transform: translateY(50%) scale(1, 0.001); visibility: hidden; z-index: 1; }
+}
+
+@keyframes moveCenterToTop {
+	from { transform: translateY(0%) scale(1, 1); visibility: visible; z-index: 1000; }
+	to { transform: translateY(-50%) scale(1, 0.001); visibility: hidden; z-index: 1; }
+}
+
+@keyframes rotateCenterToLeft {
+    from { transform: translateX(60%) translateY(0%) rotate(0deg); z-index: 2000; }
+    to { transform: translateX(-40%) translateY(350%) rotate(-90deg); z-index: 1; }
+}
+
+@keyframes rotateCenterToRight {
+    from { transform: translateX(-50%) translateY(0%) rotate(0deg); z-index: 2000; }
+    to { transform: translateX(42%) translateY(350%) rotate(90deg); z-index: 1; }
+}
+
+@keyframes rotateLeftToCenter {
+    from { transform: translateX(-40%) translateY(350%) rotate(-90deg); z-index: 1; }
+    to { transform: translateX(70%) translateY(0%) rotate(0deg); z-index: 2000; }
+}
+
+@keyframes rotateRightToCenter {
+    from { transform: translateX(42%) translateY(350%) rotate(90deg); z-index: 1; }
+    to { transform: translateX(-50%) translateY(0%) rotate(0deg); z-index: 2000; }
+}
+
+@keyframes deleteItem {
+    from { opacity: 1; background: #EEEEEE; display: initial;}
+    to { opacity: 0; background: #FFFFFF; display: none;}
+}

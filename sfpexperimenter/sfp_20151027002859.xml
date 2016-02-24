@@ -1,0 +1,15 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://dbpedia.org/ontology/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.1="http://dbpedia.org/property/" > 
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Inform,_Inc.">
+    <j.0:location266576358612>http://dbpedia.org/resource/United_States</j.0:location266576358612>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Vandenberg_Air_Force_Base">
+    <j.1:postalCodeType9126171263>http://dbpedia.org/resource/ZIP_code</j.1:postalCodeType9126171263>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/United_States">
+    <rdfs:seeAlso2631231560859>http://dbpedia.org/resource/United_States</rdfs:seeAlso2631231560859>
+  </rdf:Description>
+</rdf:RDF>

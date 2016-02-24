@@ -1,0 +1,11 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://purl.org/dc/terms/"
+    xmlns:j.1="http://dbpedia.org/ontology/" > 
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Jimmy_Page">
+    <j.0:subject30811760924204>http://dbpedia.org/resource/Category:Living_people</j.0:subject30811760924204>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Port-au-Prince">
+    <j.1:timeZone32941216818721>http://dbpedia.org/resource/Eastern_Time_Zone</j.1:timeZone32941216818721>
+  </rdf:Description>
+</rdf:RDF>

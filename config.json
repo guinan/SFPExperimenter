@@ -1,0 +1,16 @@
+{
+    "serverPort": 3000,
+    "serverHost": "localhost",
+    "serverDebug": true,
+    "serverSaveSfpInFile": true,
+
+    "guinanHost": "localhost",
+    "guinanPort": 10080,
+
+    "dbHost": "localhost",
+    "dbPort": 1984,
+    "dbUser": "admin",
+    "dbPassword": "admin",
+    "dbName": "test_db2",
+    "dbDebug": false
+}

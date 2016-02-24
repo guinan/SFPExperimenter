@@ -1,0 +1,21 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.1="http://www.w3.org/2004/02/skos/core#" > 
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Ext_functor">
+    <j.0:subject461234511818>http://dbpedia.org/resource/Category:Homological_algebra</j.0:subject461234511818>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Category:Functors">
+    <j.1:broader32512304699>http://dbpedia.org/resource/Category:Category_theory</j.1:broader32512304699>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Monad_(category_theory)">
+    <owl:differentFrom29430594272>http://dbpedia.org/resource/Monad_(linear_algebra)</owl:differentFrom29430594272>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Category:Homological_algebra">
+    <j.1:broader324439536954>http://dbpedia.org/resource/Category:Category_theory</j.1:broader324439536954>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Monad_(linear_algebra)">
+    <j.0:subject422062771780>http://dbpedia.org/resource/Category:Homological_algebra</j.0:subject422062771780>
+  </rdf:Description>
+</rdf:RDF>
